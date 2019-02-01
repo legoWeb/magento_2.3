@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="polushkin_crud_listening_data_source" xsi:type="string">Polushkin\CRUD\Model\ResourceModel\Item\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Polushkin\CRUD\Model\ResourceModel\Item\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">polushkin_crud_item</argument>
+            <argument name="resourceModel" xsi:type="string">Polushkin\CRUD\Model\ResourceModel\Item</argument>
+        </arguments>
+    </virtualType>
+
+    <preference for="Polushkin\CRUD\Api\PostManagementInterface" type="Polushkin\CRUD\Model\Item"/>
+
+    <preference for="Polushkin\CRUD\Api\ItemRepositoryInterface"
+                type="Polushkin\CRUD\Model\ItemRepository"/>
+
+    <preference for="Polushkin\CRUD\Api\Data\ItemInterface"
+                type="Polushkin\CRUD\Model\Item"/>
+
+    <preference for="Polushkin\CRUD\Api\Data\ItemSearchResultInterface"
+                type="Polushkin\CRUD\Api\Data\ItemInterfaceSearchResults"/>
+
+</config>
