@@ -6,8 +6,8 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 {
     protected function _construct()
     {
-        $this->_init('Polushkin\CRUD\Model\Item',
-            'Polushkin\CRUD\Model\ResourceModel\Item');
+        $this->_init(\Polushkin\CRUD\Model\Item::class,
+            \Polushkin\CRUD\Model\ResourceModel\Item::class);
     }
 
 }

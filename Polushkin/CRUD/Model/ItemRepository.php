@@ -5,7 +5,9 @@ namespace Polushkin\CRUD\Model;
 
 class ItemRepository implements \Polushkin\CRUD\Api\ItemRepositoryInterface
 {
-
+    /**
+     * @var \Polushkin\CRUD\Model\ResourceModel\Item
+     */
     protected $resource;
 
     protected $itemFactory;
@@ -18,13 +20,25 @@ class ItemRepository implements \Polushkin\CRUD\Api\ItemRepositoryInterface
 
     protected $dataObjectProcessor;
 
-    protected $dataItemCRUDFactory;
+    protected $dataItemFactory;
 
     private $storeManager;
 
     private $collectionProcessor;
 
 
+    /**
+     * ItemRepository constructor.
+     * @param ResourceModel\Item $resource
+     * @param ItemFactory $itemFactory
+     * @param \Polushkin\CRUD\Api\Data\ItemInterfaceFactory $dataItemFactory
+     * @param ResourceModel\Item\CollectionFactory $itemCollectionFactory
+     * @param \Polushkin\CRUD\Api\Data\ItemSearchResultInterfaceFactory $searchResultsFactory
+     * @param \Magento\Framework\Api\DataObjectHelper $dataObjectHelper
+     * @param \Magento\Framework\Reflection\DataObjectProcessor $dataObjectProcessor
+     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     * @param \Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface $collectionProcessor
+     */
     public function __construct(
         \Polushkin\CRUD\Model\ResourceModel\Item $resource,
         \Polushkin\CRUD\Model\ItemFactory $itemFactory,
@@ -47,6 +61,12 @@ class ItemRepository implements \Polushkin\CRUD\Api\ItemRepositoryInterface
         $this->collectionProcessor = $collectionProcessor;
     }
 
+    /**
+     * @param \Polushkin\CRUD\Api\Data\ItemInterface $item
+     * @return mixed|\Polushkin\CRUD\Api\Data\ItemInterface
+     * @throws \Magento\Framework\Exception\CouldNotSaveException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
     public function save(\Polushkin\CRUD\Api\Data\ItemInterface $item)
     {
         if (empty($item->getStoreId())) {

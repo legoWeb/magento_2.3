@@ -4,7 +4,8 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="polushkin_crud_listening_data_source" xsi:type="string">Polushkin\CRUD\Model\ResourceModel\Item\Grid\Collection</item>
+                <item name="polushkin_crud_listening_data_source"
+                      xsi:type="string">Polushkin\CRUD\Model\ResourceModel\Item\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
@@ -16,8 +17,6 @@
         </arguments>
     </virtualType>
 
-    <preference for="Polushkin\CRUD\Api\PostManagementInterface" type="Polushkin\CRUD\Model\Item"/>
-
     <preference for="Polushkin\CRUD\Api\ItemRepositoryInterface"
                 type="Polushkin\CRUD\Model\ItemRepository"/>
 
@@ -25,6 +24,6 @@
                 type="Polushkin\CRUD\Model\Item"/>
 
     <preference for="Polushkin\CRUD\Api\Data\ItemSearchResultInterface"
-                type="Polushkin\CRUD\Api\Data\ItemInterfaceSearchResults"/>
+                type="Polushkin\CRUD\Api\Data\ItemInterfaceSearchResult"/>
 
 </config>

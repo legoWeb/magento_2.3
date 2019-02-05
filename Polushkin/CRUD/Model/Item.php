@@ -3,18 +3,12 @@
 namespace Polushkin\CRUD\Model;
 
 class Item extends \Magento\Framework\Model\AbstractModel
-    implements \Polushkin\CRUD\Api\Data\ItemInterface, \Magento\Framework\DataObject\IdentityInterface
+    implements \Polushkin\CRUD\Api\Data\ItemInterface
 {
-    const CACHE_TAG = 'polushkin_crud_item';
 
     protected function _construct()
     {
-        $this->_init('Polushkin\Crud\Model\ResourceModel\Item');
-    }
-
-    public function getIdentities()
-    {
-        return [self::CACHE_TAG . '_' . $this->getId()];
+        $this->_init(\Polushkin\Crud\Model\ResourceModel\Item::class);
     }
 
     public function getTitle()
