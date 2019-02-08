@@ -1,0 +1,20 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Polushkin_CRUD::item"
+             title="CRUD"
+             translate="title"
+             module="Polushkin_CRUD"
+             sortOrder="20"
+             dependsOnModule="Polushkin_CRUD"
+             resource="Polushkin_CRUD::item"/>
+
+        <add id="Polushkin_CRUD::items"
+             title="Crud_test"
+             translate="title"
+             module="Polushkin_CRUD"
+             sortOrder="10"
+             parent="Polushkin_CRUD::item"
+             action="crud"
+             resource="Polushkin_CRUD::item"/>
+    </menu>
+</config>
